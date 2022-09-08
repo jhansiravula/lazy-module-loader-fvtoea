@@ -1,0 +1,10 @@
+<main>
+  <div class="load-container">
+    <button type="button" (click)="changePT('lazy')">Load lazy feature module</button>
+    <button type="button" (click)="changePT('lazy2')">Load lazy2 feature module</button>
+
+    <div class="loader">
+      <module-loader [selector]='post'></module-loader>
+    </div>
+  </div>
+</main>

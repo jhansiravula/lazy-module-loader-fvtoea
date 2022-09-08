@@ -1,0 +1,49 @@
+/* ------------------------------------------------------------------------ *
+    MIXINS ONLY
+    https://alligator.io/sass/if-else-statements/
+* ------------------------------------------------------------------------ */
+// @mixin transform($property) {
+//   -webkit-transform: $property;
+//       -ms-transform: $property;
+//           transform: $property;
+// }
+
+// usage
+// .box { @include transform(rotate(30deg)); }
+
+/* ------------------------------------------------------------------------ *
+    COMPONENT LIST
+    Want to apply something to a list of component tags?
+* ------------------------------------------------------------------------ */
+// $components: 'header', 'search', 'profile';
+// $prefix: 'app';
+// Run through each app-^ component element that should be display:grid;
+// @each $component in $components {
+//     #{$prefix}-#{$component}{
+//         display:grid;
+//         grid-column: 1 / -1;
+//     }
+// }
+
+// Ellipsis text when parent shrinks
+@mixin ellipse($width: 'auto') {
+	display:block;
+  	text-overflow: ellipsis; /* will make [...] at the end of only ONE LINE!*/
+  	@if $width { width:$width; }
+  	white-space: nowrap; /* paragraph to one line */
+  	overflow:hidden; /* older browsers */
+  	// -webkit-line-clamp: 2; // https://caniuse.com/#search=line-clamp would allow ellipsis on 2nd line
+}
+
+// horizontal scroll overflow
+@mixin scroll-x(){
+    flex-flow: nowrap;
+    white-space: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;// momentum-based scrolling after gesture
+
+    // hide scrollbars chrome / IE10+ & Edge
+    &::-webkit-scrollbar { display: none; }
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    -ms-overflow-style: none;
+}

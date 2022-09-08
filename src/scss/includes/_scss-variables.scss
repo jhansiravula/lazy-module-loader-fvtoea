@@ -1,0 +1,55 @@
+/* ------------------------------------------------------------------------ *
+    SITE-WIDE VARIABLES
+    These are used throughout the project, include this file in components
+    Keep colors here to keep DRY and to maintain branding/design system
+* ------------------------------------------------------------------------ */
+
+
+/* ------------------------------------------------------------------------ *
+    PRIMARY COLORS
+    primary, secondary, tertiary, quaternary, quinary, senary, septenary, octonary, nonary, and denary
+
+    #2196F3 = rgba(33, 150, 243, 1)
+* ------------------------------------------------------------------------ */
+$primary-color: #2196f3; // Blue 500 https://material.io/design/color/#tools-for-picking-colors
+$secondary-color: #f5f8fa; //#b3e5fc;
+
+$disabled-color: #efefef;
+
+/* ------------------------------------------------------------------------ *
+    SECONDARY COLORS
+* ------------------------------------------------------------------------ */
+$background: #ececec;
+$background-blue: #F1F9FF;
+
+/* ------------------------------------------------------------------------ *
+    RECRUITLER BRAND COLORS
+* ------------------------------------------------------------------------ */
+$pink: #fc73a7;
+
+/* ------------------------------------------------------------------------ *
+    UTILITIES
+* ------------------------------------------------------------------------ */
+$card-divider: #efefef;
+$hr: rgba(0, 0, 0, 0.12);
+$red: #FF8484;
+$green: #80FFA7;
+$active: rgba(33, 150, 243, 0.2);
+$input-border: lighten($primary-color, 35%);
+
+/* ------------------------------------------------------------------------ *
+    WARNINGS AND STATES
+* ------------------------------------------------------------------------ */
+
+/* ------------------------------------------------------------------------ *
+    TYPOGRAPHY
+    https://material.io/guidelines/style/typography.html#typography-other-typographic-guidelines
+* ------------------------------------------------------------------------ */
+$heading: #737373;
+$body: #202020;
+$light-text: #808080;
+
+/* ------------------------------------------------------------------------ *
+    FONT STACKS
+* ------------------------------------------------------------------------ */
+$sans-serif: Roboto, Arial, 'open sans', 'Helvetica Neue', Helvetica, sans-serif;

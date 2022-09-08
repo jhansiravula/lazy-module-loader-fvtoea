@@ -1,0 +1,10 @@
+/* ------------------------------------------------------------------------ *
+    GLOBAL CSS VARIABLES
+    naming: https://medium.com/@amcdnl/theming-angular-with-css-variables-3c78a5b20b24
+* ------------------------------------------------------------------------ */
+:root{
+    // FORM COLORS
+    --static-border-color: rgba(33, 150, 243, .24);
+    --hover-border-color: rgba(33, 150, 243, 0.87);
+    --focused-border-color: rgba(33, 150, 243, .87);
+}

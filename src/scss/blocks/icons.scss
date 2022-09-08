@@ -1,0 +1,38 @@
+/* ------------------------------------------------------------------------ *
+  Any customizing SVG icons within app-icon component
+  You do have an app-icon component don't you?
+
+  icon.component styles
+* ------------------------------------------------------------------------ */
+
+icon {
+  fill: #202020;
+  align-self: center;
+  justify-content: center;
+  position:relative;
+  min-width: 15px;
+  min-height: 16px; // matching body font size
+  max-height: 25px;
+  svg {
+    display: inline-block;
+    all: inherit; // inherit everything
+    margin: 0; // dont inherit margin
+    position:static;
+  }
+
+  &.up {
+    fill: #80FFA7!important;
+    transform: rotate(90deg)
+  }
+  &.down {
+    fill: #FF8484!important;
+  }
+
+}
+
+[icon="circle-info"]{
+    width: 18px;
+}
+[icon="pro-badge"]{
+    fill: #2196f3;
+}

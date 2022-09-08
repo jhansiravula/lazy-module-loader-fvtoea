@@ -1,0 +1,160 @@
+/* ------------------------------------------------------------------------ *
+    FLOATING LABEL INPUT STYLES
+    These styles are directly applied to a FloatingLabelComponent
+    However the styles are shared and thus included in the global stylesheet
+    because other input fields also require them. (TypeaheadComponent)
+    Any custom use of the floating label design can resuse these.
+
+    https://codepen.io/BRacicot/pen/JzNxPK
+* ------------------------------------------------------------------------ */
+input-floating-label{
+    width:100%;
+}
+.floating-label {
+    position:relative;
+    width: 100%;
+    .tags{
+        order:2;
+        padding: 0 13px;
+        width:100%;
+    }
+}
+.floating-label__input {
+    padding: 13px 14px 14px 15px;
+    border: none !important; // reset input defaults w caution
+    outline: none !important; // reset input defaults w caution
+    background-color: transparent;
+    font-size: 16px;
+    line-height: 1;
+    color: rgba(0, 0, 0, 0.87);
+    z-index: 1;
+}
+// wrapper for the 3 border elements
+.floating-label__outline {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    width: 100%;
+    max-width: 100%;
+    height: 100%;
+    text-align: left;
+    pointer-events: none;
+
+    // overridable colors (moved to the global root-variables.scss file)
+    // --static-border-color: rgba(0, 0, 0, 0.24);
+    // --hover-border-color: rgba(0, 0, 0, 0.87);
+    // --focused-border-color: rgba(33, 150, 243, .87);
+}
+
+// 3 border elements
+.floating-label__leading,
+.floating-label__notch,
+.floating-label__trailing {
+    border-color: var(--static-border-color);
+    border-width: 1px;
+    border-style: solid;
+    transition: border 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.floating-label__leading {
+    border-radius: 4px 0 0 4px;
+    border-right: none;
+    width: 12px;
+}
+// hides the border for label display
+.floating-label__notch {
+    border-right: none;
+    border-left: none;
+}
+.floating-label__trailing {
+    flex-grow: 1;
+    border-radius: 0 4px 4px 0;
+    border-left: none;
+}
+
+// the actual floating <label>
+.floating-label__label {
+    align-content: center;
+    align-self: flex-start;
+    position: relative;
+    bottom: auto;
+    left: 4px;
+    max-width: 100%;
+    height: 45px;
+    opacity: .5; // placeholder text should appear as placeholder style
+    color: rgba(0, 0, 0, 0.6);
+
+    transform-origin: left top;
+    transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1), color 0.15s cubic-bezier(0.4, 0, 0.2, 1),
+        -webkit-transform 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform; // smooth out the transition
+}
+textarea + .floating-label__outline .floating-label__label {
+    align-content: flex-start;
+    top:10px;
+}
+// END DEFAULT STYLES
+
+// BEGIN STATE-BASED STYLES
+.floating-label:hover{
+    .floating-label__leading,
+    .floating-label__notch,
+    .floating-label__trailing {
+        border-color: var(--hover-border-color);
+    }
+}
+
+// input:not(:placeholder-shown) to know if text has been entered
+// Edge support: when combined with a required input field, :valid is a dirty CSS-only solution to know if there's text in the input value
+// https://stackoverflow.com/a/35302732/1440240
+.floating-label.float, // JS solution
+input:-webkit-autofill + .floating-label__outline
+// CSS-based solutions
+// .floating-label__input:not(:placeholder-shown),
+// .floating-label__input:valid ~ .floating-label__outline,
+// .floating-label__input:focus ~ .floating-label__outline
+{
+    // --static-border-color: rgba(33, 150, 243, .87);
+    .floating-label__leading,
+    .floating-label__notch,
+    .floating-label__trailing {
+        border-color: var(--focused-border-color);
+        border-width: 2px;
+    }
+    .floating-label__notch {
+        border-top: none;
+        max-width: calc(100% - 12px * 2);
+    }
+    .floating-label__label {
+        opacity: 1;
+        transform: translateY(-17px) scale(0.75);
+    }
+}
+// END STATE-BASED STYLES
+
+// VALIDATION
+.input--error {
+    // never show input-floating-label's input border
+    .floating-label__input {
+        border: none !important; // reset input defaults w caution
+        outline: none !important; // reset input defaults w caution
+    }
+    .floating-label__label {
+        color: $red;
+        animation: shake 0.25s cubic-bezier(.36,.07,.19,.97) both;
+        perspective: 1000px;
+    }
+}
+
+// can't use transform on .floating-label__label
+@keyframes shake {
+    33.33%{
+        left:8px;
+    }
+    66.33%{
+        left:-2px;
+    }
+    100%{
+        left:4;
+    }
+}

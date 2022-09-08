@@ -1,0 +1,45 @@
+$height: 36;
+.select {
+    position: relative;
+    display: inline-block;
+    &:before {
+        content: '';
+        position: absolute;
+        display: block;
+        height: 44px;
+        right: 7px;
+        top: 1px;
+        width: 22px;
+
+        background: #fff; //for Firefox in Android
+        border-top-right-radius: 3px;
+        border-bottom-right-radius: 3px;
+        pointer-events: none;
+    }
+    &:after {
+        content: ' ';
+        position: absolute;
+        right: 15px;
+        top: 46%;
+        width: 0;
+        height: 0;
+        margin-top: -3px;
+        z-index: 2;
+        pointer-events: none;
+        border-style: solid;
+        border-width: 6.9px 4px 0 4px;
+        border-color: #aaa transparent transparent transparent;
+        pointer-events: none;
+    }
+    select {
+        width:100%;
+        height: 46px;
+        padding: 0 30px 0 17px;
+        appearance: none;
+        border: 1px solid $input-border;
+        border-radius: 3px;
+        line-height: $height + px;
+        background: #fff;
+        font-size: 16px;
+    }
+}
